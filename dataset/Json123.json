@@ -1,0 +1,20 @@
+{
+	"name": "Json123",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "TaxiRides.csv",
+				"folderPath": "raw",
+				"fileSystem": "taxidata"
+			}
+		},
+		"schema": {}
+	}
+}
