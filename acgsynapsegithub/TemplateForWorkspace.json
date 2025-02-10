@@ -535,7 +535,7 @@
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
 				"content": {
-					"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'taxidata_teststoragegithub_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [taxidata_teststoragegithub_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION = 'abfss://taxidata@teststoragegithub.dfs.core.windows.net' \n\t)\nGO\n\ncreate schema dbo\n\nCREATE EXTERNAL TABLE dbo.Taxi (\n\t[RideId] nvarchar(4000),\n\t[VendorId] nvarchar(4000),\n\t[PickupTime] nvarchar(4000),\n\t[DropTime] nvarchar(4000),\n\t[PickupLocationId] nvarchar(4000),\n\t[DropLocationId] nvarchar(4000),\n\t[CabNumber] nvarchar(4000),\n\t[DriverLicenseNumber] nvarchar(4000),\n\t[PassengerCount] nvarchar(4000),\n\t[TripDistance] nvarchar(4000),\n\t[RateCodeId] nvarchar(4000),\n\t[PaymentType] nvarchar(4000),\n\t[TotalAmount] nvarchar(4000),\n\t[FareAmount] nvarchar(4000),\n\t[Extra] nvarchar(4000),\n\t[MtaTax] nvarchar(4000),\n\t[TipAmount] nvarchar(4000),\n\t[TollsAmount] nvarchar(4000),\n\t[ImprovementSurcharge] nvarchar(4000)\n\t)\n\tWITH (\n\tLOCATION = 'output/data_161d0eb7-6638-4579-ac98-00b595bcc1c0_3b15003d-f890-4bb6-952e-85d58c3f57af.parquet',\n\tDATA_SOURCE = [taxidata_teststoragegithub_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)\nGO\n\n\nSELECT TOP 100 * FROM dbo.Taxi\nGO",
+					"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'taxidata_teststoragegithub_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [taxidata_teststoragegithub_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION = 'abfss://taxidata@teststoragegithub.dfs.core.windows.net' \n\t)\nGO\n\n\n\nCREATE EXTERNAL TABLE dbo.Taxi (\n\t[RideId] nvarchar(4000),\n\t[VendorId] nvarchar(4000),\n\t[PickupTime] nvarchar(4000),\n\t[DropTime] nvarchar(4000),\n\t[PickupLocationId] nvarchar(4000),\n\t[DropLocationId] nvarchar(4000),\n\t[CabNumber] nvarchar(4000),\n\t[DriverLicenseNumber] nvarchar(4000),\n\t[PassengerCount] nvarchar(4000),\n\t[TripDistance] nvarchar(4000),\n\t[RateCodeId] nvarchar(4000),\n\t[PaymentType] nvarchar(4000),\n\t[TotalAmount] nvarchar(4000),\n\t[FareAmount] nvarchar(4000),\n\t[Extra] nvarchar(4000),\n\t[MtaTax] nvarchar(4000),\n\t[TipAmount] nvarchar(4000),\n\t[TollsAmount] nvarchar(4000),\n\t[ImprovementSurcharge] nvarchar(4000)\n\t)\n\tWITH (\n\tLOCATION = 'output/data_161d0eb7-6638-4579-ac98-00b595bcc1c0_3b15003d-f890-4bb6-952e-85d58c3f57af.parquet',\n\tDATA_SOURCE = [taxidata_teststoragegithub_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)\nGO\n\n\nSELECT TOP 100 * FROM dbo.Taxi\nGO",
 					"metadata": {
 						"language": "sql"
 					},
@@ -575,6 +575,310 @@
 									"LinkedServiceName": "acgsynapsegithub-WorkspaceDefaultStorage"
 								}
 							}
+						},
+						"Source": {
+							"Type": "SPARK"
+						}
+					},
+					{
+						"ActionType": "CREATE",
+						"OldEntity": null,
+						"NewEntity": {
+							"Name": "test2",
+							"EntityType": "TABLE",
+							"Namespace": {
+								"DatabaseName": "Database1"
+							},
+							"Description": "",
+							"TableType": "EXTERNAL",
+							"Origin": {
+								"Type": "SPARK"
+							},
+							"StorageDescriptor": {
+								"Columns": [
+									{
+										"Name": "RideId",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "VendorId",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "PickupTime",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "DropTime",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "PickupLocationId",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "DropLocationId",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "CabNumber",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "DriverLicenseNumber",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "PassengerCount",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "TripDistance",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "RateCodeId",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "PaymentType",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "TotalAmount",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "FareAmount",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "Extra",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "MtaTax",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "TipAmount",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "TollsAmount",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									},
+									{
+										"Name": "ImprovementSurcharge",
+										"OriginDataTypeName": {
+											"TypeName": "string",
+											"IsComplexType": false,
+											"IsNullable": true,
+											"Length": 8000,
+											"Properties": {
+												"HIVE_TYPE_STRING": "string"
+											}
+										},
+										"DeltaFormatInvalidMessages": []
+									}
+								],
+								"Format": {
+									"InputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+									"OutputFormat": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+									"FormatType": "parquet",
+									"SerializeLib": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
+									"Properties": {
+										"path": "abfss://taxidata@teststoragegithub.dfs.core.windows.net/output/data_161d0eb7-6638-4579-ac98-00b595bcc1c0_3b15003d-f890-4bb6-952e-85d58c3f57af.parquet",
+										"FormatTypeSetToDatabaseDefault": false
+									}
+								},
+								"Source": {
+									"Provider": "ADLS",
+									"Location": "abfss://taxidata@teststoragegithub.dfs.core.windows.net/output/data_161d0eb7-6638-4579-ac98-00b595bcc1c0_3b15003d-f890-4bb6-952e-85d58c3f57af.parquet",
+									"Properties": {
+										"LinkedServiceName": "AzureDataLakeStorage1",
+										"LocationSetToDatabaseDefault": false
+									}
+								},
+								"Properties": {
+									"textinputformat.record.delimiter": ",",
+									"compression": "{\"type\":\"None\",\"level\":\"optimal\"}",
+									"derivedModelAttributeInfo": "{\"attributeReferences\":{}}"
+								},
+								"Compressed": false,
+								"IsStoredAsSubdirectories": false
+							},
+							"Properties": {
+								"Description": "",
+								"DisplayFolderInfo": "{\"name\":\"Others\",\"colorCode\":\"\"}",
+								"PrimaryKeys": "",
+								"spark.sql.sources.provider": "parquet"
+							},
+							"Retention": 0,
+							"Temporary": false,
+							"IsRewriteEnabled": false
 						},
 						"Source": {
 							"Type": "SPARK"
