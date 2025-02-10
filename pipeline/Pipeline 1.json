@@ -16,14 +16,14 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "JsonSource",
+						"type": "DelimitedTextSource",
 						"storeSettings": {
 							"type": "AzureBlobFSReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "JsonReadSettings"
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"sink": {
@@ -36,11 +36,249 @@
 							"type": "ParquetWriteSettings"
 						}
 					},
-					"enableStaging": false
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "RideId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RideId",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "VendorId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "VendorId",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "PickupTime",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PickupTime",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "DropTime",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DropTime",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "PickupLocationId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PickupLocationId",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "DropLocationId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DropLocationId",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "CabNumber",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "CabNumber",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "DriverLicenseNumber",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DriverLicenseNumber",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "PassengerCount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PassengerCount",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "TripDistance",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TripDistance",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "RateCodeId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "RateCodeId",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "PaymentType",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PaymentType",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalAmount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TotalAmount",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "FareAmount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FareAmount",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "Extra",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Extra",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "MtaTax",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MtaTax",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "TipAmount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TipAmount",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "TollsAmount",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TollsAmount",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							},
+							{
+								"source": {
+									"name": "ImprovementSurcharge",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "ImprovementSurcharge",
+									"type": "String",
+									"physicalType": "UTF8"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
-						"referenceName": "Json123",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					}
 				],
