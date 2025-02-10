@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [RideId]\n,[VendorId]\n,[PickupTime]\n,[DropTime]\n,[PickupLocationId]\n,[DropLocationId]\n,[CabNumber]\n,[DriverLicenseNumber]\n,[PassengerCount]\n,[TripDistance]\n,[RateCodeId]\n,[PaymentType]\n,[TotalAmount]\n,[FareAmount]\n,[Extra]\n,[MtaTax]\n,[TipAmount]\n,[TollsAmount]\n,[ImprovementSurcharge]\n FROM [Database1].[dbo].[test2]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "Database1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
